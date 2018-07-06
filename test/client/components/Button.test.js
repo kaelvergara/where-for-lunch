@@ -4,8 +4,8 @@ import sinon from 'sinon';
 import Button from 'client/components/Button/Button';
 
 describe('With Enzyme Button component', () => {
-  test('should have disabled look when hasLocation is false', () => {
-    const props = { theme: 'homepageClick', hasLocation: false };
+  test('should have disabled look when isDisabled is true', () => {
+    const props = { theme: 'homepageClick', isDisabled: true };
     const wrapper = shallow(
       <Button {...props} />,
     );
@@ -13,8 +13,8 @@ describe('With Enzyme Button component', () => {
     expect(p.length).toBe(1);
   });
 
-  test('should have enabled look when hasLocation is true', () => {
-    const props = { theme: 'homepageClick', hasLocation: true };
+  test('should have enabled look when isDisabled is false', () => {
+    const props = { theme: 'homepageClick', isDisabled: false };
     const wrapper = shallow(
       <Button {...props} />,
     );
@@ -22,9 +22,9 @@ describe('With Enzyme Button component', () => {
     expect(p.length).toBe(1);
   });
 
-  test('onClick should not be called when hasLocation is false', () => {
+  test('onClick should not be called when isDisabled is true', () => {
     const onClick = sinon.spy();
-    const props = { onClick, theme: 'homepageClick', hasLocation: false };
+    const props = { onClick, theme: 'homepageClick', isDisabled: true };
     const wrapper = shallow(
       <Button {...props} />,
     );
@@ -32,9 +32,9 @@ describe('With Enzyme Button component', () => {
     expect(onClick.called).toBe(false);
   });
 
-  test('onClick should be called when hasLocation is true', () => {
+  test('onClick should be called when isDisabled is false', () => {
     const onClick = sinon.spy();
-    const props = { onClick, theme: 'homepageClick', hasLocation: true };
+    const props = { onClick, theme: 'homepageClick', isDisabled: false };
     const wrapper = shallow(
       <Button {...props} />,
     );

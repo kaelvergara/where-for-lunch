@@ -24,7 +24,7 @@ class HomePage extends Component {
         <Place place={place} />
         <div className="searchWrapper">
           <Condition condition={condition} action={this.handleOnConditionChange}/>
-          <Button onClick={this.handleOnClick} theme="homepageClick" hasLocation={hasLocation} />
+          <Button onClick={this.handleOnClick} theme="homepageClick" isDisabled={!hasLocation} />
         </div>
       </div>
     );
