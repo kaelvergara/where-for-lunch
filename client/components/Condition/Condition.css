@@ -1,4 +1,6 @@
 .root {
+  display: flex;
+
   > span, > div {
     display: inline;
   }
