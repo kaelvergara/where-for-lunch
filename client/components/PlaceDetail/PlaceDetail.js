@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Flexbox from 'flexbox-react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Map from 'components/Map/Map';
+import Map from '../Map/Map';
 import styles from './PlaceDetail.css';
 
 

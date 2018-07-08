@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PlaceDetail from 'client/components/PlaceDetail/PlaceDetail';
+import Map from 'client/components/Map/Map';
 
-describe('With Enzyme, Place Detail', () => {
+describe('With Enzyme, Place Detail Component', () => {
   describe('Given a place', () => {
     const place = {
       name: 'Some Restaurant',
@@ -88,6 +89,15 @@ describe('With Enzyme, Place Detail', () => {
       );
       const p = wrapper.find('.photo');
       expect(p.length).toBe(3);
+    });
+
+    test('should render a map', () => {
+      const props = { details: place };
+      const wrapper = shallow(
+        <PlaceDetail {...props} />,
+      );
+      const p = wrapper.find(Map);
+      expect(p.length).toBe(1);
     });
   });
 });
