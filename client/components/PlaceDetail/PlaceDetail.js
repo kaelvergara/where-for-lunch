@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Flexbox from 'flexbox-react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Map from 'components/Map/Map';
 import styles from './PlaceDetail.css';
 
 
@@ -48,6 +49,17 @@ const PlaceDetail = ({ details }) => {
                 })
               }
             </Flexbox>
+          </div>
+          <div>
+            <span>Map</span>
+            <Map
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+              lat={details.coordinates.latitude}
+              lng={details.coordinates.longitude}
+            />
           </div>
         </Flexbox>
       </Flexbox>
