@@ -30,11 +30,11 @@ class HomePage extends Component {
   }
 
   render() {
-    const { condition, place, cuisine } = this.props;
+    const { condition, place: { featuredPlace }, cuisine } = this.props;
     const hasLocation = (condition.latitude != null && condition.longitude != null);
     return (
       <div className="homePageWrapper">
-        <Place place={place} />
+        <Place place={featuredPlace} />
         <div className="searchWrapper">
           <Condition
             condition={condition}

@@ -1,0 +1,33 @@
+@import 'variables.css';
+
+:global(.m0)  { margin:             0 !important; }
+:global(.ml0) { margin-left:        0 !important; }
+:global(.mr0) { margin-right:       0 !important; }
+:global(.mt0) { margin-top:         0 !important; }
+:global(.mb0) { margin-bottom:      0 !important; }
+:global(.m1)  { margin-left:        calc($base-spacing * .25) !important; }
+:global(.ml1) { margin-left:        calc($base-spacing * .25) !important; }
+:global(.mr1) { margin-right:       calc($base-spacing * .25) !important; }
+:global(.mt1) { margin-top:         calc($base-spacing * .25) !important; }
+:global(.mb1) { margin-bottom:      calc($base-spacing * .25) !important; }
+:global(.ml2) { margin-left:        calc($base-spacing * .5) !important; }
+:global(.mr2) { margin-right:       calc($base-spacing * .5) !important; }
+:global(.mt2) { margin-top:         calc($base-spacing * .5) !important; }
+:global(.mb2) { margin-bottom:      calc($base-spacing * .5) !important; }
+:global(.m2)  { margin-left:        calc($base-spacing * .5) !important; }
+
+:global(.p0)  { margin:             0 !important; }
+:global(.pl0) { margin-left:        0 !important; }
+:global(.pr0) { margin-right:       0 !important; }
+:global(.pt0) { margin-top:         0 !important; }
+:global(.pb0) { margin-bottom:      0 !important; }
+:global(.p1)  { margin-left:        calc($base-spacing * .25) !important; }
+:global(.pl1) { margin-left:        calc($base-spacing * .25) !important; }
+:global(.pr1) { margin-right:       calc($base-spacing * .25) !important; }
+:global(.pt1) { margin-top:         calc($base-spacing * .25) !important; }
+:global(.pb1) { margin-bottom:      calc($base-spacing * .25) !important; }
+:global(.pl2) { margin-left:        calc($base-spacing * .5) !important; }
+:global(.pr2) { margin-right:       calc($base-spacing * .5) !important; }
+:global(.pt2) { margin-top:         calc($base-spacing * .5) !important; }
+:global(.pb2) { margin-bottom:      calc($base-spacing * .5) !important; }
+:global(.p2)  { margin-left:        calc($base-spacing * .5) !important; }

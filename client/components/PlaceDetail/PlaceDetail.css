@@ -1,0 +1,21 @@
+@import '../../styles/variables.css';
+
+.root {
+  background-color: $gray-background;
+  padding: 10px;
+  color: $black;
+
+  .icon {
+    margin-right: 5px;
+  }
+
+  .photo {
+    position: relative;
+    float: left;
+    width:  11rem;
+    height: 11rem;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+  }
+}
