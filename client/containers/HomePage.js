@@ -18,15 +18,7 @@ class HomePage extends Component {
   }
 
   handleOnSetCategories = (category) => {
-    const { categories } = this.props.condition;
-    // use indexOf() over includes() for backwards compatibility
-    const categoryIndex = categories.indexOf(category);
-    const isCategoryAlreadyAdded = categoryIndex > -1;
-    if (isCategoryAlreadyAdded) {
-      this.props.removeCategory(categoryIndex);
-    } else {
-      this.props.addCategory(category);
-    }
+    this.props.toggleCategory(category);
   }
 
   render() {
@@ -59,8 +51,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPlaces: placeActions.fetchPlaces,
     setRadius: conditionActions.setRadius,
-    addCategory: conditionActions.addCategory,
-    removeCategory: conditionActions.removeCategory,
+    toggleCategory: conditionActions.toggleCategory,
   }, dispatch);
 
 HomePage.propTypes = {
@@ -69,8 +60,7 @@ HomePage.propTypes = {
   cuisine: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
-  addCategory: PropTypes.func,
-  removeCategory: PropTypes.func,
+  toggleCategory: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
