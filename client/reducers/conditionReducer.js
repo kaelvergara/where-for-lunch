@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import * as actionTypes from 'actions/conditionActionTypes';
+import * as actionTypes from '../actions/conditionActionTypes';
 
 const initialState = {
   radius: 500,
@@ -14,12 +14,14 @@ const conditionReducer = handleActions(
       const { latitude, longitude } = action.payload;
       return { ...state, latitude, longitude };
     },
-    [actionTypes.ADD_CATEGORY](state, action) {
-      return { ...state, categories: [...state.categories, action.payload] };
-    },
-    [actionTypes.REMOVE_CATEGORY](state, action) {
-      console.log(action);
-      return { ...state, categories: [...state.categories.slice(0, action.payload), ...state.categories.slice(action.payload + 1)] };
+    [actionTypes.TOGGLE_CATEGORY](state, action) {
+      const categoryIndex = state.categories.indexOf(action.payload);
+      const isCategoryAlreadyAdded = categoryIndex > -1;
+      if (isCategoryAlreadyAdded) {
+        return { ...state, categories: [...state.categories.slice(0, categoryIndex), ...state.categories.slice(categoryIndex + 1)] };
+      } else if (!isCategoryAlreadyAdded) {
+        return { ...state, categories: [...state.categories, action.payload] };
+      }
     },
   },
   initialState,

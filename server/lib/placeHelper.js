@@ -9,7 +9,7 @@ export function toSearchPlacesParams(params) {
   };
 
   if (params.categories) {
-    result.categories = params.categories.reduce((acc, category) => `${acc},${category}`);
+    result.categories = params.categories.join(',');
   }
   return result;
 }
