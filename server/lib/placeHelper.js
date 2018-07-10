@@ -7,6 +7,10 @@ export function toSearchPlacesParams(params) {
     limit: 50,
     open_now: true,
   };
+
+  if (params.categories) {
+    result.categories = params.categories.join(',');
+  }
   return result;
 }
 

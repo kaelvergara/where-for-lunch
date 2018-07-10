@@ -13,17 +13,27 @@ class HomePage extends Component {
     this.props.fetchPlaces(this.props.condition);
   }
 
-  handleOnConditionChange = (value) => {
+  handleOnSetRadius = (value) => {
     this.props.setRadius(value);
   }
+
+  handleOnSetCategories = (category) => {
+    this.props.toggleCategory(category);
+  }
+
   render() {
-    const { condition, place } = this.props;
+    const { condition, place, cuisine } = this.props;
     const hasLocation = (condition.latitude != null && condition.longitude != null);
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
+          <Condition
+            condition={condition}
+            categories={cuisine.categories}
+            onSetRadius={this.handleOnSetRadius}
+            onSetCategories={this.handleOnSetCategories}
+          />
           <Button onClick={this.handleOnClick} theme="homepageClick" isDisabled={!hasLocation} />
         </div>
       </div>
@@ -34,19 +44,23 @@ class HomePage extends Component {
 const mapStateToProps = state => ({
   condition: state.condition,
   place: state.place,
+  cuisine: state.cuisine,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPlaces: placeActions.fetchPlaces,
     setRadius: conditionActions.setRadius,
+    toggleCategory: conditionActions.toggleCategory,
   }, dispatch);
 
 HomePage.propTypes = {
   condition: PropTypes.object,
   place: PropTypes.object,
+  cuisine: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  toggleCategory: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
