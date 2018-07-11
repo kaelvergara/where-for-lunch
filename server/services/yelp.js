@@ -16,7 +16,7 @@ export async function searchPlaces(params) {
   }
 }
 
-export async function searchPlaceDetails(id) {
+export async function searchPlace(id) {
   try {
     const { data } = await authedAxios.get(`/businesses/${id}`);
     return data;

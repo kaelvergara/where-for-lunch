@@ -3,24 +3,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import placeActions from 'actions/placeActions';
-import PlaceDetail from 'components/PlaceDetail/PlaceDetail';
+import Place from 'components/Place/Place';
+import { isObjectEmpty } from 'lib/utils';
 
-class PlaceDetails extends Component {
+class PlacePage extends Component {
   constructor(props) {
     super(props);
 
     if (this.props.match) {
       const id = this.props.match.params.id;
 
-      this.props.fetchPlaceDetails(id);
+      this.props.fetchPlaceDetail(id);
     }
   }
 
   render() {
-    const { details } = this.props.place;
+    const place = this.props.place;
     return (
-      <div className="placeDetailsWrapper">
-        { details ? <PlaceDetail details={details}/> : 'Loading, please wait'}
+      <div className="placeWrapper">
+        { !isObjectEmpty(place) ? <Place place={place} theme="detailed"/> : 'Loading, please wait'}
       </div>
     );
   }
@@ -32,15 +33,15 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    fetchPlaceDetails: placeActions.fetchPlaceDetails,
+    fetchPlaceDetail: placeActions.fetchPlaceDetail,
   }, dispatch);
 
-PlaceDetails.propTypes = {
+PlacePage.propTypes = {
   match: PropTypes.object,
   place: PropTypes.object,
-  fetchPlaceDetails: PropTypes.func,
+  fetchPlaceDetail: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PlaceDetails);
+)(PlacePage);

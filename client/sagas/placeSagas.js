@@ -10,8 +10,8 @@ import {
 function* fetchPlace(action) {
   try {
     const places = yield call(getPlaceIds, action.payload);
-    const randomPlace = (getRandom(places)) ? getRandom(places) : {};
-    yield put(placeActions.setFeaturedPlace(randomPlace));
+    const randomPlace = getRandom(places);
+    yield put(placeActions.setDetails(randomPlace));
   } catch (e) {
     console.log('error! ', e);
   }

@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import { searchPlaces, searchPlaceDetails } from '../services/yelp';
+import { searchPlaces, searchPlace } from '../services/yelp';
 import {
   toSearchPlacesParams,
   fromSearchPlacesParams,
-  fromGetPlaceDetailsParams,
+  fromSearchPlaceParams,
 } from '../lib/placeHelper';
 
 const router = Router();
@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const details = await searchPlaceDetails(req.params.id);
-  res.send(fromGetPlaceDetailsParams(details));
+  const details = await searchPlace(req.params.id);
+  res.send(fromSearchPlaceParams(details));
 });
 
 export default router;

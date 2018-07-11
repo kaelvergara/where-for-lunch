@@ -18,7 +18,7 @@
   }
   .rating {
     margin-top: $base-spacing;
-    position: realtive;
+    position: relative;
     display: inline;
   }
   .ratingScore, .stars {
@@ -43,5 +43,18 @@
   .emptyStars:before, .fullStars:before {
     content:'\2605\2605\2605\2605\2605';
     font-size: 1rem;
+  }
+  .photoLabel {
+    margin-top: 10px;
+  }
+  .photo {
+    position: relative;
+    float: left;
+    width: 11rem;
+    height: 11rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5px;
   }
 }
