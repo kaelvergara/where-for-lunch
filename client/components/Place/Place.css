@@ -44,8 +44,12 @@
     content:'\2605\2605\2605\2605\2605';
     font-size: 1rem;
   }
-  .photoLabel {
+  .photoLabel,
+  .mapLabel {
     margin-top: 10px;
+  }
+  .mapLabel {
+    clear: left;
   }
   .photo {
     position: relative;

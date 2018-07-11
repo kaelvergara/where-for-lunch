@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Place from 'client/components/Place/Place';
 import renderer from 'react-test-renderer';
+import Map from 'client/components/Map/Map';
 
 describe('With Enzyme, Place component', () => {
   test('should not render rating section when no rating passed over', () => {
@@ -65,6 +66,15 @@ describe('With Enzyme, Place component', () => {
     );
     const p = wrapper.find('.photo');
     expect(p.length).toBe(3);
+  });
+
+  test('given a coordinate should render a map', () => {
+    const props = { place: { coordinates: { latitude: 14.5839248015233, longitude: 121.123764663935 } }, theme: 'detailed' };
+    const wrapper = shallow(
+      <Place {...props} />,
+    );
+    const p = wrapper.find(Map);
+    expect(p.length).toBe(1);
   });
 });
 

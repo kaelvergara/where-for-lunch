@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './Place.css';
+import Map from '../Map/Map';
 
 const Place = ({ place, theme }) => {
   return (
@@ -24,20 +25,31 @@ const Place = ({ place, theme }) => {
         }
         { theme === 'summarized' && place.id && <div className={styles.seeMore}><Link to={`/details/${place.id}`}>See More</Link></div> }
         { theme === 'detailed' && <div className={styles.photoLabel}>Photos</div> }
-        { theme === 'detailed' && place.photos &&
-          place.photos.map((photo, i) => {
-            // set photos to same height and width
-            return (
-              <div
-                key={i}
-                className={classNames({
-                  [styles.photo]: true,
-                  pr2: true,
-                })}
-                style={{ backgroundImage: `url(${photo})` }}
-              />
-            );
-          })
+        <div>
+          { theme === 'detailed' && place.photos &&
+            place.photos.map((photo, i) => {
+              // set photos to same height and width
+              return (
+                <div
+                  key={i}
+                  className={classNames({
+                    [styles.photo]: true,
+                    pr2: true,
+                  })}
+                  style={{ backgroundImage: `url(${photo})` }}
+                />
+              );
+            })
+          }
+        </div>
+        { theme === 'detailed' && <div className={styles.mapLabel}>Map</div> }
+        { theme === 'detailed' && place.coordinates &&
+          <Map
+            lat={place.coordinates.latitude}
+            long={place.coordinates.longitude}
+            API_KEY="AIzaSyC3MFoNs_g2xFNOUTWKNFDYTTfzR7YfoBg"
+            zoom={16}
+          />
         }
       </div>
     </div>
