@@ -29,3 +29,11 @@ export function fromSearchPlacesParams(params) {
   };
   return result;
 }
+
+export function fromSearchPlaceParams(params) {
+  const result = fromSearchPlacesParams(params);
+  result.coordinates = params.coordinates;
+  result.photos = params.photos;
+
+  return result;
+}

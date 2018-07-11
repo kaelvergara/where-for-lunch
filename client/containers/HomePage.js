@@ -26,7 +26,7 @@ class HomePage extends Component {
     const hasLocation = (condition.latitude != null && condition.longitude != null);
     return (
       <div className="homePageWrapper">
-        <Place place={place} />
+        <Place place={place} theme="summarized"/>
         <div className="searchWrapper">
           <Condition
             condition={condition}
