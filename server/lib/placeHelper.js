@@ -5,7 +5,7 @@ export function toSearchPlacesParams(params) {
     longitude: params.longitude,
     radius: params.radius,
     limit: 50,
-    open_now: false,
+    open_now: true,
   };
 
   if (params.categories) {
@@ -30,20 +30,10 @@ export function fromSearchPlacesParams(params) {
   return result;
 }
 
-export function fromGetPlaceDetailsParams(params) {
-  const result = {
-    id: params.id,
-    name: params.name,
-    image_url: params.image_url,
-    url: params.url,
-    display_phone: params.display_phone,
-    review_count: params.review_count,
-    categories: params.categories,
-    rating: params.rating,
-    location: params.location,
-    coordinates: params.coordinates,
-    photos: params.photos,
-    price: params.price,
-  };
+export function fromSearchPlaceParams(params) {
+  const result = fromSearchPlacesParams(params);
+  result.coordinates = params.coordinates;
+  result.photos = params.photos;
+
   return result;
 }
